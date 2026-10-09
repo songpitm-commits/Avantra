@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aventra Travels | Smart & Vibrant Group Trips</title>
+
+<!-- Google Fonts: Fraunces & Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-dark: #0a0d12;
+    --bg-card: #1a1f29;
+    --bg-card-hover: #222834;
+    --bg-card-inner: #141820;
+    --primary: #c9a24a;
+    --primary-bright: #e2bd6a;
+    --primary-soft: rgba(201, 162, 74, 0.14);
+    --accent: #c9a24a;
+    --text-main: #efe7d5;
+    --text-sub: #a89f8c;
+    --border: rgba(239, 231, 213, 0.1);
+    --gold: #c9a24a;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: 'Fraunces', serif;
+}
+
+::selection {
+    background-color: var(--gold);
+    color: #0a0d12;
+}
+
+/* CUSTOM SCROLLBAR */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: #2a3342;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* NAVIGATION */
+nav {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 18px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(10, 13, 18, 0.9);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--text-main);
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--gold);
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: var(--text-sub);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--gold);
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 110px 20px 70px 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 18px;
+    background: var(--primary-soft);
+    border: 1px solid rgba(201, 162, 74, 0.3);
+    color: var(--primary-bright);
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(36px, 5vw, 62px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+    color: var(--text-main);
+}
+
+.hero h1 span {
+    background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    font-size: 17px;
+    color: var(--text-sub);
+    margin: 0 auto 35px auto;
+    max-width: 600px;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: #0a0d12;
+    padding: 14px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(201, 162, 74, 0.2);
+}
+
+.btn-primary:hover {
+    background: var(--primary-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(201, 162, 74, 0.3);
+}
+
+/* TRUST & PARTNERS SECTION */
+.partners-section {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 45px 6%;
+    text-align: center;
+}
+
+.partners-header {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--text-sub);
+    margin-bottom: 25px;
+}
+
+.iso-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--primary-soft);
+    border: 1px solid rgba(201, 162, 74, 0.3);
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-bottom: 35px;
+}
+
+.iso-badge {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--gold);
+    letter-spacing: 1px;
+}
+
+.partners-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.partner-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--bg-card-inner);
+    border: 1px solid var(--border);
+    padding: 12px 22px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.partner-card:hover {
+    border-color: rgba(201, 162, 74, 0.4);
+    transform: translateY(-2px);
+}
+
+.partner-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+.partner-tag {
+    font-size: 11px;
+    color: var(--gold);
+    background: var(--primary-soft);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-left: 4px;
+}
+
+/* SECTIONS */
+section {
+    padding: 80px 8%;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--text-main);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-sub);
+    font-size: 15px;
+    margin-bottom: 45px;
+}
+
+/* SERVICES GRID */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(201, 162, 74, 0.4);
+    background: var(--bg-card-hover);
+}
+
+.card-img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+    color: var(--gold);
+}
+
+.card p {
+    color: var(--text-sub);
+    font-size: 14px;
+}
+
+/* HOW IT WORKS */
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.step-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 30px 22px;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.step-number {
+    width: 48px;
+    height: 48px;
+    background: var(--primary-soft);
+    color: var(--gold);
+    font-weight: 800;
+    font-size: 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(201, 162, 74, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px auto;
+}
+
+.step-box h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+.step-box p {
+    color: var(--text-sub);
+    font-size: 14px;
+}
+
+/* LOCATIONS */
+.locations-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.search-box {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 14px 20px;
+    background: var(--bg-card-inner);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+    border-color: var(--gold);
+}
+
+.filter-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-sub);
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 13px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+    background: var(--gold);
+    color: #0a0d12;
+    border-color: var(--gold);
+}
+
+.locations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    gap: 12px;
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.locations-grid::-webkit-scrollbar {
+    width: 5px;
+}
+.locations-grid::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 10px;
+}
+
+.loc-badge {
+    background: var(--bg-card-inner);
+    border: 1px solid var(--border);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.loc-badge:hover {
+    border-color: var(--gold);
+    background: var(--bg-card-hover);
+    transform: translateY(-2px);
+}
+
+.loc-badge .tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    background: var(--primary-soft);
+    color: var(--gold);
+}
+
+/* REVIEWS & FAQ */
+.reviews-grid, .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.review-card, .faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 24px;
+    border-radius: 16px;
+}
+
+.review-card p, .faq-item p {
+    color: var(--text-sub);
+    font-size: 14px;
+    font-style: italic;
+}
+
+.reviewer-name {
+    font-weight: 700;
+    font-size: 14px;
+    margin-top: 15px;
+    color: var(--gold);
+    font-style: normal;
+}
+
+.faq-item h4 {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: var(--text-main);
+}
+
+/* CONTACT */
+.contact-form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    background: var(--bg-card);
+    padding: 35px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px;
+    background: var(--bg-card-inner);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    color: var(--text-main);
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+}
+
+.contact-form select option {
+    background: var(--bg-card-inner);
+    color: var(--text-main);
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    border-color: var(--gold);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    border-top: 1px solid var(--border);
+    background: #06080c;
+    color: var(--text-sub);
+    font-size: 13px;
+}
+
+footer strong {
+    color: var(--gold);
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    section { padding: 50px 5%; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <a href="#" class="logo">Aven<span>tra</span></a>
+    <div class="nav-links">
+        <a href="#partners">Partners</a>
+        <a href="#services">Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#locations">Locations</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-badge">ISO 9001:2015 Certified Travel Agency</div>
+    <h1>Explore the world with <span>Aventra</span></h1>
+    <p>Seamlessly planned trips, incredible like-minded groups, and top-tier affiliations with leading travel & hospitality brands.</p>
+    <a href="#contact" class="btn-primary">Book Your Journey</a>
+</div>
+
+<!-- TRUSTED & AUTHORIZED PARTNERS SECTION -->
+<div class="partners-section" id="partners">
+    <div class="iso-container">
+        <span class="iso-badge">ISO 9001:2015 CERTIFIED QUALITY MANAGEMENT</span>
+    </div>
+    <div class="partners-header">Official Affiliations & Authorizations</div>
+    
+    <div class="partners-grid">
+        <div class="partner-card">
+            <span class="partner-name">IRCTC</span>
+            <span class="partner-tag">Authorized</span>
+        </div>
+        <div class="partner-card">
+            <span class="partner-name">Air India</span>
+            <span class="partner-tag">Ticketing</span>
+        </div>
+        <div class="partner-card">
+            <span class="partner-name">Airbnb</span>
+            <span class="partner-tag">Network</span>
+        </div>
+        <div class="partner-card">
+            <span class="partner-name">Taj Hotels</span>
+            <span class="partner-tag">Luxury Stay</span>
+        </div>
+        <div class="partner-card">
+            <span class="partner-name">Marriott</span>
+            <span class="partner-tag">Hotel Partner</span>
+        </div>
+        <div class="partner-card">
+            <span class="partner-name">Hilton</span>
+            <span class="partner-tag">Hotel Partner</span>
+        </div>
+        <div class="partner-card">
+            <span class="partner-name">Hyatt</span>
+            <span class="partner-tag">Hotel Partner</span>
+        </div>
+    </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+    <h2 class="section-title">What We Offer</h2>
+    <p class="section-subtitle">Choose the travel experience that fits your vision.</p>
+
+    <div class="cards-grid">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80" alt="Group Travel" class="card-img">
+            <div class="card-content">
+                <h3>Solo Traveler Groups</h3>
+                <p>Join friendly, small-group departures created specifically for solo adventurers looking for hassle-free community.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80" alt="International Travel" class="card-img">
+            <div class="card-content">
+                <h3>Global Getaways</h3>
+                <p>Curated international journeys across Europe, Asia, and North America with premium stays and easy logistics.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1506461883276-594a12b11cf3?auto=format&fit=crop&w=600&q=80" alt="Domestic Travel" class="card-img">
+            <div class="card-content">
+                <h3>Scenic India Circuits</h3>
+                <p>From Himalayan treks to coastal retreats, experience India's finest places with expertly guided itineraries.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works">
+    <h2 class="section-title">How It Works</h2>
+    <p class="section-subtitle">Three steps to your next escape.</p>
+
+    <div class="steps-grid">
+        <div class="step-box">
+            <div class="step-number">1</div>
+            <h4>Pick a Location</h4>
+            <p>Select your favorite destination from our broad list of travel hotspots.</p>
+        </div>
+        <div class="step-box">
+            <div class="step-number">2</div>
+            <h4>Send Inquiry</h4>
+            <p>Fill out our short booking request form with your preferred dates.</p>
+        </div>
+        <div class="step-box">
+            <div class="step-number">3</div>
+            <h4>Get Ready</h4>
+            <p>We take care of stays, transport, and routing. You pack your bags!</p>
+        </div>
+    </div>
+</section>
+
+<!-- LOCATIONS -->
+<section id="locations">
+    <h2 class="section-title">Explore Destinations</h2>
+    <p class="section-subtitle">Click any destination to pre-select it in the inquiry form.</p>
+
+    <div class="locations-container">
+        <div class="search-box">
+            <input type="text" id="locSearch" class="search-input" placeholder="Search city or country..." onkeyup="filterLocations()">
+        </div>
+
+        <div class="filter-buttons">
+            <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
+            <button class="filter-btn" onclick="filterCategory('domestic', this)">India</button>
+            <button class="filter-btn" onclick="filterCategory('international', this)">International</button>
+        </div>
+
+        <div class="locations-grid" id="locationsGrid">
+            <!-- DOMESTIC / INDIA -->
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Goa, India')"><span>Goa</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Kashmir, India')"><span>Kashmir</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Manali, India')"><span>Manali</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Ladakh, India')"><span>Ladakh</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Kerala, India')"><span>Kerala</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Udaipur, India')"><span>Udaipur</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Jaipur, India')"><span>Jaipur</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Jaisalmer, India')"><span>Jaisalmer</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Rishikesh, India')"><span>Rishikesh</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Kasol, India')"><span>Kasol</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Spiti Valley, India')"><span>Spiti Valley</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Shimla, India')"><span>Shimla</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Darjeeling, India')"><span>Darjeeling</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Gangtok (Sikkim), India')"><span>Gangtok</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Pelling (Sikkim), India')"><span>Pelling</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Shillong, India')"><span>Shillong</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Cherrapunji, India')"><span>Cherrapunji</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Coorg, India')"><span>Coorg</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Ooty, India')"><span>Ooty</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Wayanad, India')"><span>Wayanad</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Munnar, India')"><span>Munnar</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Alleppey, India')"><span>Alleppey</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Kodaikanal, India')"><span>Kodaikanal</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Pondicherry, India')"><span>Pondicherry</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Varanasi, India')"><span>Varanasi</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Andaman Islands, India')"><span>Andaman</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Lakshadweep, India')"><span>Lakshadweep</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('McLeod Ganj, India')"><span>McLeod Ganj</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Bir Billing, India')"><span>Bir Billing</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Mussoorie, India')"><span>Mussoorie</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Nainital, India')"><span>Nainital</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Auli, India')"><span>Auli</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Chopta, India')"><span>Chopta</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Dharamshala, India')"><span>Dharamshala</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Dalhousie, India')"><span>Dalhousie</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Kedarkantha Trek, India')"><span>Kedarkantha</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Valley of Flowers, India')"><span>Valley of Flowers</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Rann of Kutch, India')"><span>Rann of Kutch</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Mount Abu, India')"><span>Mount Abu</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Chikmagalur, India')"><span>Chikmagalur</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Gokarna, India')"><span>Gokarna</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Hampi, India')"><span>Hampi</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Sundarbans, India')"><span>Sundarbans</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Kaziranga, India')"><span>Kaziranga</span> <span class="tag">India</span></div>
+            <div class="loc-badge" data-category="domestic" onclick="selectDestination('Tawang, India')"><span>Tawang</span> <span class="tag">India</span></div>
+
+            <!-- INTERNATIONAL -->
+            <div class="loc-badge" data-category="international" onclick="selectDestination('United States (USA)')"><span>USA</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Canada')"><span>Canada</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Paris, France')"><span>Paris, France</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Monaco')"><span>Monaco</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('London, United Kingdom')"><span>United Kingdom</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Rome, Italy')"><span>Italy</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Madrid, Spain')"><span>Spain</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Berlin, Germany')"><span>Germany</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Amsterdam, Netherlands')"><span>Netherlands</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Zurich, Switzerland')"><span>Switzerland</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Vienna, Austria')"><span>Austria</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Brussels, Belgium')"><span>Belgium</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Oslo, Norway')"><span>Norway</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Stockholm, Sweden')"><span>Sweden</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Copenhagen, Denmark')"><span>Denmark</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Helsinki, Finland')"><span>Finland</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Reykjavik, Iceland')"><span>Iceland</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Lisbon, Portugal')"><span>Portugal</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Athens, Greece')"><span>Greece</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Prague, Czech Republic')"><span>Czech Republic</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Warsaw, Poland')"><span>Poland</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Dubrovnik, Croatia')"><span>Croatia</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Istanbul, Turkey')"><span>Turkey</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Tbilisi, Georgia')"><span>Georgia</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Yerevan, Armenia')"><span>Armenia</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Moscow, Russia')"><span>Russia</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Dubai, UAE')"><span>Dubai (UAE)</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Abu Dhabi, UAE')"><span>Abu Dhabi (UAE)</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Singapore')"><span>Singapore</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Kuala Lumpur, Malaysia')"><span>Malaysia</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Bangkok, Thailand')"><span>Thailand</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Tokyo, Japan')"><span>Japan</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Beijing, China')"><span>China</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Shanghai, China')"><span>Shanghai (China)</span> <span class="tag">World</span></div>
+            <div class="loc-badge" data-category="international" onclick="selectDestination('Kyoto, Japan')"><span>Kyoto (Japan)</span> <span class="tag">World</span></div>
+        </div>
+    </div>
+</section>
+
+<!-- REVIEWS & FAQ -->
+<section id="reviews">
+    <h2 class="section-title">What Travelers Say</h2>
+    <p class="section-subtitle">Real experiences from our travel community.</p>
+
+    <div class="reviews-grid">
+        <div class="review-card">
+            <p>"I joined as a solo traveler to France and came back with a whole group of great friends. Extremely smooth trip!"</p>
+            <div class="reviewer-name">— Rahul Sharma</div>
+        </div>
+        <div class="review-card">
+            <p>"Great communication, neat stays, and helpful trip leaders. Aventra handled every little detail seamlessly."</p>
+            <div class="reviewer-name">— Priya Patel</div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT FORM -->
+<section id="contact">
+    <h2 class="section-title">Plan Your Next Trip</h2>
+    <p class="section-subtitle">Fill out the form below and we'll reach out with full details.</p>
+
+    <form class="contact-form" action="#" method="POST">
+        <input type="text" placeholder="Full Name" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="tel" placeholder="Phone Number" required>
+        
+        <select id="destinationSelect" required>
+            <option value="" disabled selected>Select Destination</option>
+            <optgroup label="Domestic / India">
+                <option value="Goa, India">Goa, India</option>
+                <option value="Kashmir, India">Kashmir, India</option>
+                <option value="Manali, India">Manali, India</option>
+                <option value="Ladakh, India">Ladakh, India</option>
+                <option value="Kerala, India">Kerala, India</option>
+                <option value="Udaipur, India">Udaipur, India</option>
+                <option value="Jaipur, India">Jaipur, India</option>
+                <option value="Jaisalmer, India">Jaisalmer, India</option>
+                <option value="Rishikesh, India">Rishikesh, India</option>
+                <option value="Kasol, India">Kasol, India</option>
+                <option value="Spiti Valley, India">Spiti Valley, India</option>
+                <option value="Shimla, India">Shimla, India</option>
+                <option value="Darjeeling, India">Darjeeling, India</option>
+                <option value="Gangtok (Sikkim), India">Gangtok (Sikkim), India</option>
+                <option value="Pelling (Sikkim), India">Pelling (Sikkim), India</option>
+                <option value="Shillong, India">Shillong, India</option>
+                <option value="Cherrapunji, India">Cherrapunji, India</option>
+                <option value="Coorg, India">Coorg, India</option>
+                <option value="Ooty, India">Ooty, India</option>
+                <option value="Wayanad, India">Wayanad, India</option>
+                <option value="Munnar, India">Munnar, India</option>
+                <option value="Alleppey, India">Alleppey, India</option>
+                <option value="Kodaikanal, India">Kodaikanal, India</option>
+                <option value="Pondicherry, India">Pondicherry, India</option>
+                <option value="Varanasi, India">Varanasi, India</option>
+                <option value="Andaman Islands, India">Andaman Islands, India</option>
+                <option value="Lakshadweep, India">Lakshadweep, India</option>
+                <option value="McLeod Ganj, India">McLeod Ganj, India</option>
+                <option value="Bir Billing, India">Bir Billing, India</option>
+                <option value="Mussoorie, India">Mussoorie, India</option>
+                <option value="Nainital, India">Nainital, India</option>
+                <option value="Auli, India">Auli, India</option>
+                <option value="Chopta, India">Chopta, India</option>
+                <option value="Dharamshala, India">Dharamshala, India</option>
+                <option value="Dalhousie, India">Dalhousie, India</option>
+                <option value="Kedarkantha Trek, India">Kedarkantha Trek, India</option>
+                <option value="Valley of Flowers, India">Valley of Flowers, India</option>
+                <option value="Rann of Kutch, India">Rann of Kutch, India</option>
+                <option value="Mount Abu, India">Mount Abu, India</option>
+                <option value="Chikmagalur, India">Chikmagalur, India</option>
+                <option value="Gokarna, India">Gokarna, India</option>
+                <option value="Hampi, India">Hampi, India</option>
+                <option value="Sundarbans, India">Sundarbans, India</option>
+                <option value="Kaziranga, India">Kaziranga, India</option>
+                <option value="Tawang, India">Tawang, India</option>
+            </optgroup>
+            <optgroup label="International">
+                <option value="United States (USA)">United States (USA)</option>
+                <option value="Canada">Canada</option>
+                <option value="Paris, France">Paris, France</option>
+                <option value="Monaco">Monaco</option>
+                <option value="London, United Kingdom">London, United Kingdom</option>
+                <option value="Rome, Italy">Rome, Italy</option>
+                <option value="Madrid, Spain">Madrid, Spain</option>
+                <option value="Berlin, Germany">Berlin, Germany</option>
+                <option value="Amsterdam, Netherlands">Amsterdam, Netherlands</option>
+                <option value="Zurich, Switzerland">Zurich, Switzerland</option>
+                <option value="Vienna, Austria">Vienna, Austria</option>
+                <option value="Brussels, Belgium">Brussels, Belgium</option>
+                <option value="Oslo, Norway">Oslo, Norway</option>
+                <option value="Stockholm, Sweden">Stockholm, Sweden</option>
+                <option value="Copenhagen, Denmark">Copenhagen, Denmark</option>
+                <option value="Helsinki, Finland">Helsinki, Finland</option>
+                <option value="Reykjavik, Iceland">Reykjavik, Iceland</option>
+                <option value="Lisbon, Portugal">Lisbon, Portugal</option>
+                <option value="Athens, Greece">Athens, Greece</option>
+                <option value="Prague, Czech Republic">Prague, Czech Republic</option>
+                <option value="Warsaw, Poland">Warsaw, Poland</option>
+                <option value="Dubrovnik, Croatia">Dubrovnik, Croatia</option>
+                <option value="Istanbul, Turkey">Istanbul, Turkey</option>
+                <option value="Tbilisi, Georgia">Tbilisi, Georgia</option>
+                <option value="Yerevan, Armenia">Yerevan, Armenia</option>
+                <option value="Moscow, Russia">Moscow, Russia</option>
+                <option value="Dubai, UAE">Dubai, UAE</option>
+                <option value="Abu Dhabi, UAE">Abu Dhabi, UAE</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Kuala Lumpur, Malaysia">Kuala Lumpur, Malaysia</option>
+                <option value="Bangkok, Thailand">Bangkok, Thailand</option>
+                <option value="Tokyo, Japan">Tokyo, Japan</option>
+                <option value="Beijing, China">Beijing, China</option>
+                <option value="Shanghai, China">Shanghai, China</option>
+                <option value="Kyoto, Japan">Kyoto, Japan</option>
+            </optgroup>
+        </select>
+        
+        <textarea rows="4" placeholder="Tell us about your travel plans, dates, or special requests..."></textarea>
+        <button type="submit" class="btn-primary">Submit Inquiry</button>
+    </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p><strong>Aventra</strong> — Premium journeys across India and beyond. &copy; 2026 All rights reserved.</p>
+</footer>
+
+<script>
+function selectDestination(value) {
+    const select = document.getElementById('destinationSelect');
+    select.value = value;
+    document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+}
+
+function filterCategory(category, btn) {
+    const buttons = document.querySelectorAll('.filter-btn');
+    buttons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const cards = document.querySelectorAll('.loc-badge');
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+function filterLocations() {
+    const query = document.getElementById('locSearch').value.toLowerCase();
+    const cards = document.querySelectorAll('.loc-badge');
+
+    cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (text.includes(query)) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+</script>
+
+</body>
+</html>
